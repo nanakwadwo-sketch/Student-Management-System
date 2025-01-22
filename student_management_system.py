@@ -70,3 +70,17 @@ def delete_student():
             print("Student ID not found.")
     except ValueError:
         print("Invalid input. Please try again.")
+
+def search_student():
+    try:
+        student_id = int(input("Enter Student ID to search: "))
+        if student_id in students:
+            details = students[student_id]
+            print("\nID: ", student_id)
+            print("Name: ", details["name"])
+            print("Age: ", details["age"])
+            print("Courses: ", ', '.join(details["courses"]))
+        else:
+            print("Student ID not found.")
+    except ValueError:
+        print("Invalid input. Please try again.")
