@@ -49,3 +49,12 @@ def update_student():
         print("Student updated successfully.")
     except ValueError:
         print("Invalid input. Please try again.")
+
+def view_students():
+    if not students:
+        print("No students found.")
+        return
+    print("\n{:<10} {:<20} {:<5} {:<30}".format("ID", "Name", "Age", "Courses"))#display in a table format
+    print("-" * 70)
+    for student_id, details in students.items():
+        print("{:<10} {:<20} {:<5} {:<30}".format(student_id, details["name"], details["age"], ', '.join(details["courses"])))
