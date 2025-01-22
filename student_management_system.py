@@ -84,3 +84,38 @@ def search_student():
     except ValueError:
         print("Invalid input. Please try again.")
 
+def view_unique_courses():
+    unique_courses = set()
+    for details in students.values():
+        unique_courses.update(details["courses"])
+    print("\nUnique Courses:")
+    for course in unique_courses:
+        print(course)
+
+def main():
+    while True:
+        display_menu()
+        try:
+            choice = int(input("Enter your choice: "))
+            if choice == 1:
+                add_student()
+            elif choice == 2:
+                view_students()
+            elif choice == 3:
+                update_student()
+            elif choice == 4:
+                delete_student()
+            elif choice == 5:
+                search_student()
+            elif choice == 6:
+                view_unique_courses()
+            elif choice == 7:
+                print("Exiting program. Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 7.")
+
+if __name__ == "__main__":
+    main()
