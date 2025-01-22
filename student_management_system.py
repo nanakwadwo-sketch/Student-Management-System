@@ -54,33 +54,7 @@ def view_students():
     if not students:
         print("No students found.")
         return
-    print("\n{:<10} {:<20} {:<5} {:<30}".format("ID", "Name", "Age", "Courses"))#display in a table format
+    print("\n{:<10} {:<20} {:<5} {:<30}".format("ID", "Name", "Age", "Courses"))
     print("-" * 70)
     for student_id, details in students.items():
         print("{:<10} {:<20} {:<5} {:<30}".format(student_id, details["name"], details["age"], ', '.join(details["courses"])))
-
-        #function to delete student records by id
-def delete_student():
-    try:
-        student_id = int(input("Enter Student ID to delete: "))
-        if student_id in students:
-            del students[student_id]
-            print("Student deleted successfully.")
-        else:
-            print("Student ID not found.")
-    except ValueError:
-        print("Invalid input. Please try again.")
-
-def search_student():
-    try:
-        student_id = int(input("Enter Student ID to search: "))
-        if student_id in students:
-            details = students[student_id]
-            print("\nID: ", student_id)
-            print("Name: ", details["name"])
-            print("Age: ", details["age"])
-            print("Courses: ", ', '.join(details["courses"]))
-        else:
-            print("Student ID not found.")
-    except ValueError:
-        print("Invalid input. Please try again.")
