@@ -58,3 +58,15 @@ def view_students():
     print("-" * 70)
     for student_id, details in students.items():
         print("{:<10} {:<20} {:<5} {:<30}".format(student_id, details["name"], details["age"], ', '.join(details["courses"])))
+
+        #function to delete student records by id
+def delete_student():
+    try:
+        student_id = int(input("Enter Student ID to delete: "))
+        if student_id in students:
+            del students[student_id]
+            print("Student deleted successfully.")
+        else:
+            print("Student ID not found.")
+    except ValueError:
+        print("Invalid input. Please try again.")
