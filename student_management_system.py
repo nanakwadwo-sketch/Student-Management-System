@@ -58,3 +58,11 @@ def view_students():
     print("-" * 70)
     for student_id, details in students.items():
         print("{:<10} {:<20} {:<5} {:<30}".format(student_id, details["name"], details["age"], ', '.join(details["courses"])))
+
+def view_unique_courses():
+    unique_courses = set()
+    for details in students.values():
+        unique_courses.update(details["courses"])
+    print("\nUnique Courses:")
+    for course in unique_courses:
+        print(course)
